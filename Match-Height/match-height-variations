@@ -1,0 +1,43 @@
+// Run Match Height Multiple Times
+    $('.post-listing').imagesLoaded(function() {
+        
+    $('.post-item .post-header').matchHeight({
+        byRow: true,
+        property: 'height'
+    });
+    $('.post-item .hs-featured-image-link img').matchHeight({
+        byRow: true,
+        property: 'height'
+    });
+
+
+// Trigger Match Height on infinite Scroll 
+    // Trigger Isotope as a callback
+    function( newElements ) {
+        // hide new items while they are loading
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+                    $('.post-item .post-header').matchHeight({
+                         byRow: true,
+                        property: 'height'
+                     });
+                    $('.post-item .hs-featured-image-link img').matchHeight({
+                         byRow: true,
+                         property: 'height'
+                    });
+                // show elems now that they're ready
+                $newElems.animate({ opacity: 1 });
+                $container.isotope('appended', $newElems, function() {
+                 $container.imagesLoaded(function(){   
+                    $container.isotope({
+                        // selector for entry content
+                        itemSelector: '.post-item',
+                        layoutMode: 'masonry'
+                    });
+                });
+            });
+        });
+
+    });
+});
