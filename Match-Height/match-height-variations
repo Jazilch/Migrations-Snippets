@@ -1,3 +1,14 @@
+// Run Images Loaded before Match Height & Masonry
+$('.post-listing').imagesLoaded(function() {
+
+    $('.post-item').matchHeight({
+        byRow: true,
+        property: 'height'
+    });
+    
+    // masonry
+});
+
 // Run Match Height Multiple Times
     $('.post-listing').imagesLoaded(function() {
         
