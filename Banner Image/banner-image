@@ -1,0 +1,4 @@
+  // snippet will take an img src url and set it as a background image.  
+  var bannerImage = $('.custom_banner-image img').attr('src');
+   $('.custom_banner').css('background-image', 'url(' + bannerImage + ')');
+   $('.custom_banner-image').closest('.row-fluid-wrapper').remove();
