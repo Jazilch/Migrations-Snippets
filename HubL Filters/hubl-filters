@@ -1,0 +1,15 @@
+//======= Striptags
+//Great snippet for removing heading tags from a blog listing page so the text is all the same styling
+{% set some_html = "<div><strong>Some text</strong></div>" %} 
+{{ some_html|striptags }}
+
+// Truncate HTML
+//You will commonly use this when controlling the amount of text that shows up on the blog listing page
+{% set html_text = "<p>I want to truncate this text without breaking my HTML<p>" %} 
+{{ html_text|truncatehtml(28, '..' , false) }}
+
+// ======= Map Filter 
+// This takes in an array 'seq' and then using the |map filter to then set another filter on the entire array. 
+// This allows you to easily set a HubL Filter easily on a group of items
+{% set seq = ['item1', 'item2', 'item3'] %} 
+{{ seq|map('upper') }}
