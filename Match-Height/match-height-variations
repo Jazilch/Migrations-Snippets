@@ -51,3 +51,18 @@ $('.post-listing').imagesLoaded(function() {
 
     });
 });
+
+// Match Height on page load as a callback 
+   //Isotope 
+    $('.post-listing').imagesLoaded(function() {
+    $('.post-listing').isotope({
+        itemSelector: '.post-item',
+        layoutMode: 'masonry'
+    });
+    $.fn.matchHeight._afterUpdate = function(load) {
+        $('.post-item-inner .post-item-box').matchHeight({
+            byRow: true,
+            property: 'height'
+    });
+    }
+});
