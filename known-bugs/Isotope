@@ -1,0 +1,15 @@
+//Isotope
+// When slowely dragging the viewport with Isotope grid the layout keeps trying to resize. 
+// When using Isotope you will want to wrap the Isotope call in a timeout function
+
+var $grid = $('.post-listing'); // save the post listing as the variable $grid
+    
+    setTimeout(function() { // start the timeout function and wrap Isotope
+    $grid.isotope({
+        itemSelector: '.post-item',
+        layoutMode: 'masonry',
+        masonry: {
+            column: 3
+        }
+    });
+  }, 500); // set timeout to 500
