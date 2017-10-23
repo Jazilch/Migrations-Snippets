@@ -2,9 +2,7 @@
 
 install via cURL
 
-```
 $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
 
 if this doesn't work then you can use 
 curl -L http://install.ohmyz.sh | sh
