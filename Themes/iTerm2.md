@@ -46,10 +46,10 @@ All these steps are really going to better help you with day to day in the termi
 
  ** Tips & Tricks of ZSH **
  1. ) This command combines mkdir and cd together into one command
-kait new folder
+`kait new folder`
 
 2. ) Hit Tab to see autocomplete features
-cd n :tab:
+`cd n :tab:`
 
 3. ) Start with a command and then hit the up key to see recent history of just that specific command
-touch new-file
+`touch new-file`
