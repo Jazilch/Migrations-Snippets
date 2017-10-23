@@ -43,3 +43,13 @@ I think the following was easier
 `sudo easy_install pip`
 
 All these steps are really going to better help you with day to day in the terminal. In additon to clear color it also has built into the theme a way to see what current branch you're in if this is a Git Repo. This makes it extremely valuable when using the Terminal in addition to Git. 
+
+ ** Tips & Tricks of ZSH **
+ 1. ) This command combines mkdir and cd together into one command
+kait new folder
+
+2. ) Hit Tab to see autocomplete features
+cd n :tab:
+
+3. ) Start with a command and then hit the up key to see recent history of just that specific command
+touch new-file
