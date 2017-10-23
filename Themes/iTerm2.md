@@ -5,6 +5,17 @@ If you're still using the native Terminal on a Mac then I would recommend upgrad
 
 https://www.iterm2.com/
 
+If you don't have the subl command in your terminal start here. This command allows you to easily open Files in the terminal
+to sublime.
+
+1. ) Open your terminal to open directory
+`cd /usr/local/bin`
+
+2. ) You've navigated to this directory run the following command
+`ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" subl`
+
+
+
 ** Install ZSH http://ohmyz.sh/ **
 For any more advanced users who are really looking for an upgrade there is a shell called ZSH which has a ton of great features. In additon to upgraded features furturing cusomtizing the theme will greatly help your life. 
 
@@ -24,7 +35,7 @@ curl -L http://install.ohmyz.sh | sh
 The next thing you might want to do is add a custom theme there are a lot of items for improvement. From background color, font, font-size and tab color. This isn't just made make your terminal more pretty but to better help you read and quickly see whats happening in your terminal. This part can be tricky and also the files are initially hidden on a Mac so I would recommend watching the following video for a nice step by step.
 https://www.youtube.com/watch?v=XSeO6nnlWHw
 
-Use `open /.zshrc` in order to open up hidden files from the command line
+Use `subl /.zshrc` in order to open up hidden files from the command line
 
 * Cobalt2 Theme *
 https://github.com/wesbos/Cobalt2-iterm
