@@ -66,3 +66,78 @@ $('.post-listing').imagesLoaded(function() {
     });
     }
 });
+
+** Second Option when running MatchHeight On Callback
+<script>
+/**
+ * Infinite Scroll + Masonry + ImagesLoaded
+ */
+$('.post-item .news-item-copy-container').matchHeight({
+    byRow: true,
+    property: 'height'
+});
+
+        
+// Infinite Scroll + Isotope + ImagesLoaded
+(function() {
+
+    // Main content container
+    var $container = $('.blog-listing-wrapper:not(.simple-listing) > .post-listing');
+
+    // Isotope + ImagesLoaded
+    $container.imagesLoaded(function(){
+        $container.isotope({
+            // selector for entry content
+            itemSelector: '.post-item',
+            layoutMode: 'fitRows'
+        });
+    });
+
+    // Infinite Scroll
+    $container.infinitescroll({
+
+        // selector for the paged navigation (it will be hidden)
+        navSelector  : ".blog-pagination",
+        // selector for the NEXT link (to page 2)
+        nextSelector : "a.next-posts-link:last",
+        // selector for all items you'll retrieve
+        itemSelector : ".blog-listing-wrapper > .post-listing > .post-item",
+
+        // finished message
+        loading: {
+            // finishedMsg: 'No more pages to load.'
+            finished: function() {
+                console.log('No more pages to load.');
+            }
+        }
+
+    },
+
+    // Trigger Isotope as a callback
+    function( newElements ) {
+        // hide new items while they are loading
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+            // show elems now that they're ready
+            $newElems.animate({ opacity: 1 });
+            $container.isotope('appended', $newElems, function() {
+                $container.imagesLoaded(function(){
+                    $container.isotope({
+                        // selector for entry content
+                        itemSelector: '.post-item',
+                        layoutMode: 'fitRows'
+                    });
+                });
+            });
+        });
+        $('.post-item').imagesLoaded(function() {
+        $('.post-item .news-item-copy-container').matchHeight({
+            byRow: true,
+            property: 'height'
+        });
+        });
+    });
+
+})();
+</script>
