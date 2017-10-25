@@ -34,6 +34,26 @@ Create a custom module for a Banner Image
 
 </div>
 ```
+Set the CSS so that we position the Banner Image to the very top of the viewport
+```css
+.custom-banner-wrapper {
+    min-height: 546px !important;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: absolute;
+    width: 100% !important;
+    background-size: cover;
+    background-position: center;
+    background-color: #dedede;
+    background-repeat: no-repeat;
+}
+```
+Due to absolutely positiing the .custom-banner-wrapper the body-container will overlay. Simply jQuery function to set the 
+padding-top the same as the bannerHeight. This is just in case the Banner Height changes in the future. 
+```javascript
+$('.body-container-wrapper').css('padding-top', bannerHeight);
+```
 Don't forget to add a Banner Image (image) field to the custom module also
 
 
