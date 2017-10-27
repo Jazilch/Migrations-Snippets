@@ -57,6 +57,19 @@ $('.body-container-wrapper').css('padding-top', bannerHeight);
 ```
 Don't forget to add a Banner Image (image) field to the custom module also
 
+Maybe you're also looking for a way to set the Banner Height and then resize the padding to be responsive. 
+```
+var bannerHeight = $('.banner-area').outerHeight();
+$('.body-container-wrapper').css('padding-top', bannerHeight);
+
+function setBannerHeight(e) {
+	var bannerHeight = $('.banner-area').outerHeight();
+	$('.body-container-wrapper').css('padding-top', bannerHeight);
+}
+
+$(window).on('resize', setBannerHeight);
+```
+
 
 
 
