@@ -1,6 +1,6 @@
   snippet will take an img src url and set it as a background image.
  
- ```
+ ```javascript
   var bannerImage = $('.custom_banner-image img').attr('src');
    $('.custom_banner').css('background-image', 'url(' + bannerImage + ')');
    $('.custom_banner-image').closest('.row-fluid-wrapper').remove();
@@ -58,7 +58,7 @@ $('.body-container-wrapper').css('padding-top', bannerHeight);
 Don't forget to add a Banner Image (image) field to the custom module also
 
 Maybe you're also looking for a way to set the Banner Height and then resize the padding to be responsive. 
-```
+```javascript
 var bannerHeight = $('.banner-area').outerHeight();
 $('.body-container-wrapper').css('padding-top', bannerHeight);
 
