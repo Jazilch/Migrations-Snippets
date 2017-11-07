@@ -1,0 +1,9 @@
+$(document).ready(function() {
+    function replaceAnchorHref(anchor) {
+        var link = $( anchor ).attr('href').split('#')[0];
+        $( anchor ).attr('href', $( anchor ).attr('href').replace(link, '') );
+    }
+    $('a.custom-orange-button').each(function() {
+        replaceAnchorHref( this );
+    });
+});
