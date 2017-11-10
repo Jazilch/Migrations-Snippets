@@ -70,6 +70,37 @@ function setBannerHeight(e) {
 $(window).on('resize', setBannerHeight);
 ```
 
+Another item you may be having a hard time with is when exporting an image to the template context in a Custom Module. 
+You might be trying to use the following
+```
+{% image "background_image" label='Select a background image',
+src='http://cdn2.hubspot.net/hub/428357/file-2117441560-jpg/img/dev-bg-compressed.jpg', 
+export_to_template_context=True %}
+/* Since we are exporting it to the template with export_to_template_context=True
+the image will not print on the page*/
+
+/* Use the image src from this module to print as a background image with */
+background:url('{{ widget_data.background_image.src }}');
+```
+If you put this in a custom module due to the custom module it changes the path of the src image so you will need to change it 
+to the following code.
+```
+{% image "background_image" label='Select a background image',
+src='https://cdn2.hubspot.net/hubfs/3228802/November2017/Images/sample_blog.jpg', 
+export_to_template_context=True %}
+
+<div class="custom-banner-image" style="background:url('{{ widget_data.module_1509630756275202_background_image.src }}'); background-size: cover; background-repeat: no-repeat;">
+    <div class="banner-text">
+        <div class="page-center">
+            {% if widget.banner_image.src %}
+            	<img src="{{ widget.banner_image.src }}" width="{{ widget.banner_image.width }}" height="{{ widget.banner_image.height }}" alt="{{ widget.banner_image.alt }}">
+            {% endif %}
+            {{ widget.banner_text }}
+        </div>
+    </div>
+</div>
+```
+This module will still live under Widget Data but you will need to make sure you append the Module ID after widget_data
 
 
 
