@@ -4,6 +4,16 @@
    $('.custom_banner').css('background-image', 'url(' + bannerImage + ')');
    $('.custom_banner-image').closest('.row-fluid-wrapper').remove();
    
+/* Loop through each of the featured images and then set the src on the parent */
+
+
+$(function() {
+    jQuery('img.hs-rss-featured-image').each(function () {
+        jQuery(this).attr('src', jQuery(this).parent().css('background-image', 'url('  + this.src + ')'));
+    });
+    jQuery('img.hs-rss-featured-image').remove();
+});
+   
 /* Conditional that will set a blog background image diferently dependning on listing or post view */
 {% if is_listing_view %}
 <div class="custom-banner">
